@@ -11,6 +11,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <!-- Phosphor Icons for a clean look -->
     <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("YOUR_PUBLIC_KEY"); // You'll get this from EmailJS
+        })();
+    </script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -55,11 +61,32 @@
     <nav class="sticky top-0 z-50 bg-white shadow-md">
         <div class="container py-4 flex justify-between items-center">
             <a href="#hero" class="text-2xl font-bold text-indigo-600 hover:text-indigo-700 transition duration-300">Devyani Nikam</a>
-            <div class="flex items-center space-x-4">
-                <a href="#about" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300">About</a>
-                <a href="#experience" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300">Experience</a>
-                <a href="#Semesters" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300">Semesters</a>
-                <a href="#contact" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300">Contact</a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#about" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300 font-medium">About</a>
+                <a href="#philosophy" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300 font-medium">Philosophy</a>
+                <a href="#education" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300 font-medium">Education</a>
+                <a href="#experience" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300 font-medium">Experience</a>
+                <a href="#certifications" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300 font-medium">Certifications</a>
+                <a href="#community-service" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300 font-medium">Community</a>
+                <a href="#skills" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300 font-medium">Skills</a>
+                <a href="#contact" class="text-indigo-600 hover:text-indigo-700 font-medium">Contact</a>
+            </div>
+            
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-indigo-600">
+                <i class="ph-list text-2xl"></i>
+            </button>
+            
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 bg-white shadow-lg py-2 px-4 z-50">
+                <a href="#about" class="block py-2 text-gray-700 hover:text-indigo-600">About</a>
+                <a href="#philosophy" class="block py-2 text-gray-700 hover:text-indigo-600">Philosophy</a>
+                <a href="#education" class="block py-2 text-gray-700 hover:text-indigo-600">Education</a>
+                <a href="#experience" class="block py-2 text-gray-700 hover:text-indigo-600">Experience</a>
+                <a href="#certifications" class="block py-2 text-gray-700 hover:text-indigo-600">Certifications</a>
+                <a href="#community-service" class="block py-2 text-gray-700 hover:text-indigo-600">Community Service</a>
+                <a href="#skills" class="block py-2 text-gray-700 hover:text-indigo-600">Skills</a>
+                <a href="#contact" class="block py-2 text-indigo-600 font-medium">Contact</a>
             </div>
         </div>
     </nav>
@@ -74,18 +101,23 @@
         <div class="flex-1">
             <p class="text-indigo-600 font-semibold text-lg">Hello, I'm</p>
             <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 mt-2">Devyani Nikam</h1>
-            <p class="text-2xl mt-2 text-gray-600 font-medium">Trainee Teacher</p>
-            <p class="mt-6 max-w-2xl mx-auto md:mx-0 text-gray-500">
-                <i>Passionate, creative, and committed to student growth.</i>
+            <p class="text-2xl mt-2 text-gray-600 font-medium">Aspiring Science Educator | B.Ed Student – trainee teacher</p>
+            <p class="mt-6 max-w-2xl mx-auto md:mx-0 text-gray-600 italic">
+                "My goal is to make science meaningful, joyful, and deeply connected to real life."
             </p>
-            <div class="mt-8 flex justify-center md:justify-start space-x-4">
-                <!-- Replace with your actual links -->
-                <!-- <a href="#" class="bg-indigo-600 text-white font-medium py-3 px-6 rounded-lg hover:bg-indigo-700 transition duration-300 shadow-md">
-                    Download CV
-                </a> -->
-                <a href="#contact" class="bg-white text-indigo-600 font-medium py-3 px-6 rounded-lg border border-indigo-600 hover:bg-gray-100 transition duration-300 shadow-md">
-                    Get in Touch
+            <p class="mt-4 text-gray-700">
+                I am a B.Ed student with a strong academic background in science and a deep passion for teaching. My teaching style focuses on curiosity, conceptual clarity, and joyful learning. I believe that science is best understood when students can relate it to their daily lives, explore hands-on experiences, and think critically.
+            </p>
+            <div class="mt-8 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                <!-- Resume Download Button -->
+                <a href="finalResume.pdf"
+                   download="Devyani_Nikam_Resume.pdf"
+                   class="bg-indigo-600 text-white font-medium py-3 px-6 rounded-lg hover:bg-indigo-700 transition duration-300 shadow-md flex items-center justify-center space-x-2">
+                    <i class="ph-download-simple"></i>
+                    <span>Download Resume</span>
                 </a>
+                
+<!--              -->
             </div>
         </div>
     </section>
@@ -95,46 +127,95 @@
         <h2 class="text-3xl font-bold section-title">About Me</h2>
         <div class="bg-white p-8 rounded-xl shadow-lg">
             <p class="text-gray-700 mb-4">
-I am a passionate and dedicated trainee teacher, committed to creating an engaging and inclusive learning environment. My training has strengthened my skills in lesson planning, classroom management, and adapting teaching methods to diverse learners. I aim to inspire curiosity, critical thinking, and personal growth in every student.            </p>
+                My name is Devyani Nikam, and I am currently pursuing my B.Ed with a specialization in Science education. I have always been fascinated by how scientific principles shape the world around us, and this curiosity naturally evolved into a desire to teach.
+            </p>
+            <p class="text-gray-700 mb-4">
+                During my teaching practice, I realized that every child learns differently. This helped me develop a teaching approach that is inclusive, interactive, and rooted in real-life examples. I enjoy creating engaging teaching aids, digital presentations, and activity-based learning experiences for my students.
+            </p>
             <p class="text-gray-700">
-                <!-- Mention your key skills, areas of expertise, and future goals. This is your chance to tell your story and give people a glimpse into who you are beyond your resume. -->
+                Apart from teaching, I have a creative side, I love painting, and I find joy in making DIY crafts. These hobbies help me stay patient, observant, and imaginative—qualities that deeply influence my teaching style.
+            </p>
+            <p class="text-gray-700 mt-4">
+                I aspire to be a teacher who not only imparts knowledge but also inspires students to become independent thinkers and lifelong learners.
+            </p>
+        </div>
+    </section>
+
+    <!-- Teaching Philosophy Section -->
+    <section id="philosophy" class="container py-20 animate-on-scroll">
+        <h2 class="text-3xl font-bold section-title">Teaching Philosophy</h2>
+        <div class="bg-white p-8 rounded-xl shadow-lg">
+            <p class="text-gray-700 mb-4">
+                My teaching philosophy is centered around the belief that every child can learn, provided they are guided with patience, creativity, and meaningful learning experiences.
+            </p>
+            <p class="text-gray-700 mb-4">
+                I follow a child-centered and constructivist approach, where students build their own understanding through exploration and discussion. For subjects like Science, I emphasize learning by doing, real-life applications, and curiosity-driven questioning.
+            </p>
+            <p class="text-gray-700 mb-4">
+                I integrate activity-based learning, technology (Nearpod, PPTs, simulations), visual aids, and problem-solving into my lessons to ensure students stay engaged. I believe in connecting scientific concepts to everyday situations, making learning both relevant and joyful.
+            </p>
+            <p class="text-gray-700">
+                I strongly support inclusive education, ensuring that my teaching strategies accommodate diverse learning needs. My aim is to develop not just academic understanding, but also 21st-century skills such as critical thinking, communication, and creativity.
+            </p>
+            <p class="text-gray-700 mt-4 font-medium">
+                Ultimately, I want to create a safe, encouraging classroom environment where students feel confident to ask questions, make mistakes, and grow.
             </p>
         </div>
     </section>
 
     <!-- Education & Certifications Section -->
     <section id="education" class="container py-20 animate-on-scroll">
-        <h2 class="text-3xl font-bold section-title">Education & Certifications</h2>
+        <h2 class="text-3xl font-bold section-title">Education & Qualifications</h2>
         <div class="relative pl-6 md:pl-8 lg:pl-10">
             <div class="absolute inset-y-0 left-0 w-1 bg-indigo-200 rounded-full"></div>
-            <!-- Education Item -->
+            <!-- Education Item 1 -->
             <div class="relative mb-8 p-6 bg-white rounded-xl shadow-lg">
                 <span class="absolute w-4 h-4 rounded-full bg-indigo-600 -left-2 top-8 transform -translate-x-1/2"></span>
                 <div class="flex items-start">
                     <span class="text-indigo-600 text-3xl mr-4 mt-1"><i class="ph-graduation-cap"></i></span>
                     <div>
-                        <h3 class="text-xl font-bold text-gray-900">Graduation,Bsc( chemistry)</h3>
-                        <p class="text-indigo-500 font-medium">H.P.T. and R.Y.K. science college</p>
-                        <p class="text-gray-500 text-sm mt-1">2019 - 2021| Mumbai, Country</p>
-                        <ul class="list-disc list-inside mt-4 text-gray-700">
-                            <!-- <li>Relevant coursework or academic Semesters.</li>
-                            <li>Honors, awards, or other achievements.</li> -->
-                        </ul>
+                        <h3 class="text-xl font-bold text-gray-900">BACHELOR OF EDUCATION</h3>
+                        <p class="text-indigo-500 font-medium">Bombay Teachers' Training College, Mumbai, India</p>
+                        <p class="text-gray-500 text-sm mt-1">2024 – ongoing</p>
                     </div>
                 </div>
             </div>
-                        <div class="relative mb-8 p-6 bg-white rounded-xl shadow-lg">
+            
+            <!-- Education Item 2 -->
+            <div class="relative mb-8 p-6 bg-white rounded-xl shadow-lg">
                 <span class="absolute w-4 h-4 rounded-full bg-indigo-600 -left-2 top-8 transform -translate-x-1/2"></span>
                 <div class="flex items-start">
                     <span class="text-indigo-600 text-3xl mr-4 mt-1"><i class="ph-graduation-cap"></i></span>
                     <div>
-                        <h3 class="text-xl font-bold text-gray-900">B.Ed</h3>
-                        <p class="text-indigo-500 font-medium">Bombay teachers training college</p>
-                        <p class="text-gray-500 text-sm mt-1">2024 - 2026| Mumbai, India</p>
-                        <ul class="list-disc list-inside mt-4 text-gray-700">
-                            <!-- <li>Relevant coursework or academic Semesters.</li>
-                            <li>Honors, awards, or other achievements.</li> -->
-                        </ul>
+                        <h3 class="text-xl font-bold text-gray-900">BACHELOR OF SCIENCE (CHEMISTRY)</h3>
+                        <p class="text-indigo-500 font-medium">H.P.T. Arts and R.Y.K. Science College, Nashik, India</p>
+                        <p class="text-gray-500 text-sm mt-1">2019 - 2021 | CGPA: 8.7 (First class with distinction)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Education Item 3 -->
+            <div class="relative mb-8 p-6 bg-white rounded-xl shadow-lg">
+                <span class="absolute w-4 h-4 rounded-full bg-indigo-600 -left-2 top-8 transform -translate-x-1/2"></span>
+                <div class="flex items-start">
+                    <span class="text-indigo-600 text-3xl mr-4 mt-1"><i class="ph-graduation-cap"></i></span>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900">HIGHER SECONDARY EDUCATION (HSC)</h3>
+                        <p class="text-indigo-500 font-medium">Nirmal International School (CBSE), Jalgaon, India</p>
+                        <p class="text-gray-500 text-sm mt-1">2016 - 2018 | Percentage: 76%</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Education Item 4 -->
+            <div class="relative mb-8 p-6 bg-white rounded-xl shadow-lg">
+                <span class="absolute w-4 h-4 rounded-full bg-indigo-600 -left-2 top-8 transform -translate-x-1/2"></span>
+                <div class="flex items-start">
+                    <span class="text-indigo-600 text-3xl mr-4 mt-1"><i class="ph-graduation-cap"></i></span>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900">SECONDARY EDUCATION (SSC)</h3>
+                        <p class="text-indigo-500 font-medium">Nirmal International School (CBSE), Jalgaon, India</p>
+                        <p class="text-gray-500 text-sm mt-1">2016 | CGPA: 91.20%</p>
                     </div>
                 </div>
             </div>
@@ -156,147 +237,310 @@ I am a passionate and dedicated trainee teacher, committed to creating an engagi
         </div>
     </section>
 
+    <!-- Certifications Section -->
+    <section id="certifications" class="container py-16 animate-on-scroll">
+        <div class="bg-white p-8 rounded-xl shadow-lg">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Certifications</h2>
+            <p class="text-gray-600 mb-8 max-w-3xl">
+                These certifications reflect my continuous learning and commitment to professional growth in the field of education.
+            </p>
+            <a href="https://drive.google.com/drive/folders/1DDYL9raYVbi4jtakb9f2mQKBfeguirTa?usp=drive_link"
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="inline-flex items-center px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors duration-300">
+                <i class="ph-file-text text-xl mr-2"></i>
+                View All Certificates
+            </a>
+        </div>
+    </section>
+
     <!-- Experience Section -->
     <section id="experience" class="container py-20 animate-on-scroll">
-        <h2 class="text-3xl font-bold section-title">Experience</h2>
+        <h2 class="text-3xl font-bold section-title mb-8">Experience</h2>
         <div class="relative pl-6 md:pl-8 lg:pl-10">
             <div class="absolute inset-y-0 left-0 w-1 bg-indigo-200 rounded-full"></div>
+            
             <!-- Experience Item 1 -->
             <div class="relative mb-8 p-6 bg-white rounded-xl shadow-lg">
                 <span class="absolute w-4 h-4 rounded-full bg-indigo-600 -left-2 top-8 transform -translate-x-1/2"></span>
-                <div class="flex items-start">
-                    <span class="text-indigo-600 text-3xl mr-4 mt-1"><i class="ph-briefcase"></i></span>
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-900">Internship in sem II of 7 weeks</h3>
-                        <p class="text-indigo-500 font-medium">Sir J.J. Girls High School</p>
-                        <p class="text-gray-500 text-sm mt-1">20 June,2025 - 8 August,2025| Mumbai, India</p>
-                        <ul class="list-disc list-inside mt-4 text-gray-700">
-                            <!-- <li>Description of your responsibilities and achievements. Use strong action verbs.</li>
-                            <li>Quantify your achievements with numbers and metrics whenever possible.</li>
-                            <li>Highlight key Semesters or technologies you used.</li> -->
-                        </ul>
+                <div class="flex flex-col">
+                    <div class="flex items-start mb-4">
+                        <span class="text-indigo-600 text-3xl mr-4 mt-1"><i class="ph-briefcase"></i></span>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gray-900">Teaching Intern</h3>
+                            <p class="text-indigo-500 font-medium">SANJIVANI INTERNATIONAL SCHOOL (ICSE BOARD), KHARGHAR</p>
+                            <p class="text-gray-500 text-sm mt-1">September 2025 - ongoing | 25 lessons</p>
+                        </div>
+                    </div>
+                    <div class="mt-3 pt-3 border-t border-gray-100">
+                        <a href="https://drive.google.com/drive/folders/1fwldb5lD2LUs_2jOg4V6kICcDTMQEsL4"
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center text-indigo-600 hover:text-indigo-800 transition-colors">
+                            <i class="ph-google-docs-logo text-xl mr-2"></i>
+                            View Lesson Plans (25)
+                            <i class="ph-arrow-square-out text-sm ml-1"></i>
+                        </a>
                     </div>
                 </div>
             </div>
+            
             <!-- Experience Item 2 -->
-            <!-- <div class="relative mb-8 p-6 bg-white rounded-xl shadow-lg">
+            <div class="relative mb-8 p-6 bg-white rounded-xl shadow-lg">
                 <span class="absolute w-4 h-4 rounded-full bg-indigo-600 -left-2 top-8 transform -translate-x-1/2"></span>
-                <div class="flex items-start">
-                    <span class="text-indigo-600 text-3xl mr-4 mt-1"><i class="ph-briefcase"></i></span>
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-900">Another Job Title</h3>
-                        <p class="text-indigo-500 font-medium">Another Company</p>
-                        <p class="text-gray-500 text-sm mt-1">Start Date - End Date | City, Country</p>
-                        <ul class="list-disc list-inside mt-4 text-gray-700">
-                            <li>Describe your role and impact at this company.</li>
-                            <li>Focus on skills gained and problems solved.</li>
-                        </ul>
+                <div class="flex flex-col">
+                    <div class="flex items-start mb-4">
+                        <span class="text-indigo-600 text-3xl mr-4 mt-1"><i class="ph-briefcase"></i></span>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gray-900">Teaching Intern</h3>
+                            <p class="text-indigo-500 font-medium">Sir J.J. Girls High School (SSC BOARD), FORT</p>
+                            <p class="text-gray-500 text-sm mt-1">June 2025 - August 2025 | 13 lessons</p>
+                        </div>
+                    </div>
+                    <div class="mt-3 pt-3 border-t border-gray-100">
+                        <a href="https://drive.google.com/drive/folders/17Y-O_O-RJAMvXeKPXHXhNkapAz7eWavV"
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center text-indigo-600 hover:text-indigo-800 transition-colors">
+                            <i class="ph-google-docs-logo text-xl mr-2"></i>
+                            View Lesson Plans (13)
+                            <i class="ph-arrow-square-out text-sm ml-1"></i>
+                        </a>
                     </div>
                 </div>
-            </div> -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Community Service Section -->
+    <section id="community-service" class="container py-20 animate-on-scroll">
+        <h2 class="text-3xl font-bold section-title">Community Service</h2>
+        <div class="bg-white p-8 rounded-xl shadow-lg">
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/4 flex flex-col items-center text-center">
+                    <!-- Replace this div with your image/logo -->
+                    <div class="w-32 h-32 rounded-full bg-indigo-50 flex items-center justify-center mb-4 overflow-hidden">
+                        <!-- Option 1: Direct image (uncomment and replace with your image path) -->
+                         <img src="urja-trust-logo.png" alt="Urja Trust Logo" class="w-full h-full object-contain p-4">
+                        
+                        <!-- Option 2: Keep the icon as fallback -->
+                        <i class="ph-heart text-4xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Urja Trust</h3>
+                    <p class="text-indigo-600 font-medium">45 Hours</p>
+                </div>
+                <div class="md:w-3/4">
+                    <p class="text-gray-700 mb-4">
+                        I completed 45 hours of community service at Urja Trust, an organization dedicated to empowering women, children, and marginalized communities. During my service, I participated in awareness programs, educational support activities, and community outreach initiatives.
+                    </p>
+                    <div class="bg-indigo-50 p-4 rounded-lg mb-4">
+                        <h4 class="font-semibold text-indigo-800 mb-2">Key Responsibilities:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                            <li>Conducted sessions on health, hygiene, and safety</li>
+                            <li>Provided academic support to children</li>
+                            <li>Prepared educational materials</li>
+                            <li>Assisted in organizing community events</li>
+                        </ul>
+                    </div>
+                    <p class="text-gray-700">
+                        This experience strengthened my communication skills, empathy, and teamwork while deepening my understanding of social issues. It has reinforced my commitment to inclusive education and community welfare—qualities essential for a responsible and sensitive teacher.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Research Work Section -->
+    <section id="research" class="container py-20 animate-on-scroll">
+        <h2 class="text-3xl font-bold section-title">Research Work</h2>
+        <div class="bg-white p-8 rounded-xl shadow-lg">
+            <div class="space-y-6">
+                <div class="border-l-4 border-indigo-500 pl-6">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Teaching Styles Among Pre-service Teachers</h3>
+                    <div class="prose max-w-none text-gray-700 space-y-4">
+                        <p>
+                            This research explored the different teaching styles preferred and practiced by pre-service teachers during their training period. Using a survey-based approach, the study examined four major teaching styles—authoritative, facilitative, delegator, and demonstrator. The findings revealed that most pre-service teachers favored a facilitative and student-centered approach, influenced by modern pedagogical training and the emphasis on activity-based learning under NEP 2020.
+                        </p>
+                        <div class="bg-indigo-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-indigo-800 mb-2">Key Insights:</h4>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Teaching styles shaped by internship experiences and mentor feedback</li>
+                                <li>Classroom environment and self-reflection play crucial roles</li>
+                                <li>Need for exposure to diverse teaching models</li>
+                                <li>Importance of developing flexible and adaptive teaching approaches</li>
+                            </ul>
+                        </div>
+                        <p>
+                            The research highlighted how teaching styles are shaped by internship experiences, mentor feedback, classroom environment, and self-reflection. It also suggested the need for continuous exposure to varied teaching models to help student-teachers develop a flexible, adaptive, and inclusive teaching style that meets the diverse needs of learners.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills" class="container py-20 animate-on-scroll">
+        <h2 class="text-3xl font-bold section-title">Professional Skill Set</h2>
+        <div class="bg-white p-8 rounded-xl shadow-lg">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-indigo-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-indigo-800 mb-4">Core Teaching Skills</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start"><span class="text-indigo-600 mr-2 mt-1">•</span> Lesson Planning</li>
+                        <li class="flex items-start"><span class="text-indigo-600 mr-2 mt-1">•</span> Classroom Management</li>
+                        <li class="flex items-start"><span class="text-indigo-600 mr-2 mt-1">•</span> Reflective Teaching Practice</li>
+                        <li class="flex items-start"><span class="text-indigo-600 mr-2 mt-1">•</span> Communication & Presentation</li>
+                        <li class="flex items-start"><span class="text-indigo-600 mr-2 mt-1">•</span> Teamwork & Collaboration</li>
+                        <li class="flex items-start"><span class="text-indigo-600 mr-2 mt-1">•</span> Punctuality & Time Management</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-indigo-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-indigo-800 mb-4">ICT Integration</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start"><span class="text-indigo-600 mr-2 mt-1">•</span> Google Classroom</li>
+                        <li class="flex items-start"><span class="text-indigo-600 mr-2 mt-1">•</span> Google Forms (Assessment)</li>
+                        <li class="flex items-start"><span class="text-indigo-600 mr-2 mt-1">•</span> Nearpod (Interactive lessons)</li>
+                        <li class="flex items-start"><span class="text-indigo-600 mr-2 mt-1">•</span> PhET Simulations</li>
+                        <li class="flex items-start"><span class="text-indigo-600 mr-2 mt-1">•</span> Jamboard</li>
+                        <li class="flex items-start"><span class="text-indigo-600 mr-2 mt-1">•</span> Canva Posters</li>
+                        <li class="flex items-start"><span class="text-indigo-600 mr-2 mt-1">•</span> Kahoot & Quizizz</li>
+                        <li class="flex items-start"><span class="text-indigo-600 mr-2 mt-1">•</span> PowerPoint & Animations</li>
+                        <li class="flex items-start"><span class="text-indigo-600 mr-2 mt-1">•</span> Edpuzzle</li>
+                        <li class="flex items-start"><span class="text-indigo-600 mr-2 mt-1">•</span> Educaplay</li>
+                        <li class="flex items-start"><span class="text-indigo-600 mr-2 mt-1">•</span> MSCIT</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-indigo-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-indigo-800 mb-4">Additional Skills</h3>
+                    <h4 class="font-medium text-indigo-700 mt-4 mb-2">Languages</h4>
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-start"><span class="text-indigo-600 mr-2 mt-1">•</span> English</li>
+                        <li class="flex items-start"><span class="text-indigo-600 mr-2 mt-1">•</span> Hindi</li>
+                        <li class="flex items-start"><span class="text-indigo-600 mr-2 mt-1">•</span> Marathi</li>
+                    </ul>
+                    
+                    <h4 class="font-medium text-indigo-700 mt-4 mb-2">Co-curricular Skills</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start"><span class="text-indigo-600 mr-2 mt-1">•</span> Painting</li>
+                        <li class="flex items-start"><span class="text-indigo-600 mr-2 mt-1">•</span> Art and Craft</li>
+                        <li class="flex items-start"><span class="text-indigo-600 mr-2 mt-1">•</span> Anchoring</li>
+                        <li class="flex items-start"><span class="text-indigo-600 mr-2 mt-1">•</span> Event Planning</li>
+                        <li class="flex items-start"><span class="text-indigo-600 mr-2 mt-1">•</span> Dance</li>
+                        <li class="flex items-start"><span class="text-indigo-600 mr-2 mt-1">•</span> Science Activities</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Semesters Section -->
-    <section id="Semesters" class="container py-20 animate-on-scroll">
-        <h2 class="text-3xl font-bold section-title">Semesters</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Semester Card 1 -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
-                <img src="https://placehold.co/600x400/e5e7eb/4b5563?text=Semester+Image" alt="Semester 1" class="w-full h-48 object-cover">
-                <div class="p-6 flex-1">
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Semester One</h3>
-                    <p class="text-gray-700 text-sm">
-                        to be filled
-                    </p>
-                    <!-- <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Skill 1</span>
-                        <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Skill 2</span>
-                        <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Skill 3</span>
-                    </div> -->
-                    <div class="mt-6 flex space-x-4">
-                        <a href="#" class="text-indigo-600 hover:text-indigo-800 transition-colors duration-300">
-                            <i class="ph-link text-2xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-600 hover:text-gray-800 transition-colors duration-300">
-                            <i class="ph-github-logo text-2xl"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- Semester Card 2 -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
-                <img src="https://placehold.co/600x400/e5e7eb/4b5563?text=Semester+Image" alt="Semester 2" class="w-full h-48 object-cover">
-                <div class="p-6 flex-1">
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Semester Two</h3>
-                    <p class="text-gray-700 text-sm">
-                        Description
-                    </p>
-                    <!-- <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Skill 1</span>
-                        <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Skill 2</span>
-                    </div> -->
-                    <div class="mt-6 flex space-x-4">
-                        <a href="#" class="text-indigo-600 hover:text-indigo-800 transition-colors duration-300">
-                            <i class="ph-link text-2xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-600 hover:text-gray-800 transition-colors duration-300">
-                            <i class="ph-github-logo text-2xl"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- Semester Card 3 -->
-            <!-- <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
-                <img src="https://placehold.co/600x400/e5e7eb/4b5563?text=Semester+Image" alt="Semester 3" class="w-full h-48 object-cover">
-                <div class="p-6 flex-1">
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Semester Title Three</h3>
-                    <p class="text-gray-700 text-sm">
-                        A short description of your Semester. Explain its purpose, your role, and the technologies you used.
-                    </p>
-                    <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Skill 1</span>
-                        <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Skill 2</span>
-                        <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Skill 3</span>
-                    </div>
-                    <div class="mt-6 flex space-x-4">
-                        <a href="#" class="text-indigo-600 hover:text-indigo-800 transition-colors duration-300">
-                            <i class="ph-link text-2xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-600 hover:text-gray-800 transition-colors duration-300">
-                            <i class="ph-github-logo text-2xl"></i>
-                        </a>
-                    </div>
-                </div>
-            </div> -->
-        </div>
-    </section>
+<!--    &lt;!&ndash; Semesters Section &ndash;&gt;-->
+<!--    <section id="semesters" class="container py-20 animate-on-scroll">-->
+<!--        <h2 class="text-3xl font-bold section-title">Semesters</h2>-->
+<!--        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">-->
+<!--            &lt;!&ndash; Semester Card 1 &ndash;&gt;-->
+<!--            <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">-->
+<!--                <img src="https://placehold.co/600x400/e5e7eb/4b5563?text=Semester+1" alt="Semester 1" class="w-full h-48 object-cover">-->
+<!--                <div class="p-6 flex-1">-->
+<!--                    <h3 class="text-xl font-bold text-gray-900 mb-2">Semester One</h3>-->
+<!--                    <p class="text-gray-700 text-sm">-->
+<!--                        Details about your first semester will go here.-->
+<!--                    </p>-->
+<!--                    <div class="mt-6 flex space-x-4">-->
+<!--                        <a href="#" class="text-indigo-600 hover:text-indigo-800 transition-colors duration-300">-->
+<!--                            <i class="ph-link text-2xl"></i>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            -->
+<!--            &lt;!&ndash; Semester Card 2 &ndash;&gt;-->
+<!--            <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">-->
+<!--                <img src="https://placehold.co/600x400/e5e7eb/4b5563?text=Semester+2" alt="Semester 2" class="w-full h-48 object-cover">-->
+<!--                <div class="p-6 flex-1">-->
+<!--                    <h3 class="text-xl font-bold text-gray-900 mb-2">Semester Two</h3>-->
+<!--                    <p class="text-gray-700 text-sm">-->
+<!--                        Details about your second semester will go here.-->
+<!--                    </p>-->
+<!--                    <div class="mt-6 flex space-x-4">-->
+<!--                        <a href="#" class="text-indigo-600 hover:text-indigo-800 transition-colors duration-300">-->
+<!--                            <i class="ph-link text-2xl"></i>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            -->
+<!--            &lt;!&ndash; Semester Card 3 (Placeholder) &ndash;&gt;-->
+<!--            <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col border-2 border-dashed border-gray-300">-->
+<!--                <div class="h-48 bg-gray-100 flex items-center justify-center">-->
+<!--                    <i class="ph-plus text-4xl text-gray-400"></i>-->
+<!--                </div>-->
+<!--                <div class="p-6 flex-1 flex flex-col items-center justify-center">-->
+<!--                    <h3 class="text-xl font-bold text-gray-900 mb-2">Add Semester</h3>-->
+<!--                    <p class="text-gray-500 text-sm text-center mb-4">-->
+<!--                        Add details about your next semester here-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
 
     <!-- Contact Section -->
-    <section id="contact" class="container py-20 animate-on-scroll">
-        <h2 class="text-3xl font-bold section-title">Contact Me</h2>
-        <div class="bg-white p-8 rounded-xl shadow-lg">
-            <p class="text-center text-gray-700 mb-6">
-                Feel free to reach out to me for professional inquiries, collaborations, or just to say hello!
-            </p>
-            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-12">
-                <!-- Contact Details List -->
-                <div class="flex-1 space-y-4 text-center md:text-left">
-                    <div class="flex items-center justify-center md:justify-start space-x-3">
-                        <i class="ph-envelope text-indigo-600 text-2xl"></i>
-                        <a href="devyaninikam2000@gmail.com" class="text-gray-700 hover:text-indigo-600">devyaninikam2000@gmail.com</a>
+    <section id="contact" class="container py-16 animate-on-scroll">
+        <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Contact Me</h2>
+        
+        <div class="bg-white p-8 rounded-xl shadow-lg max-w-4xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Email -->
+                <div class="text-center p-4">
+                    <div class="text-indigo-600 mb-3">
+                        <i class="ph-envelope-simple text-3xl"></i>
                     </div>
-                    <div class="flex items-center justify-center md:justify-start space-x-3">
-                        <i class="ph-phone text-indigo-600 text-2xl"></i>
-                        <a href="tel:8600440323" class="text-gray-700 hover:text-indigo-600">8600440323</a>
-                    </div>
-                    <!-- Social Media Links -->
-                    <div class="mt-6 flex justify-center md:justify-start space-x-6">
-                        <a href="#" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300"><i class="ph-linkedin-logo text-3xl"></i></a>
-                        <a href="#" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300"><i class="ph-github-logo text-3xl"></i></a>
-                        <a href="#" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300"><i class="ph-twitter-logo text-3xl"></i></a>
-                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-1">Email</h3>
+                    <a href="mailto:devyaninikambttc@gmail.com" class="text-indigo-600 hover:underline text-sm">
+                        devyaninikambttc@gmail.com
+                    </a>
                 </div>
+                
+                <!-- Phone -->
+                <div class="text-center p-4">
+                    <div class="text-indigo-600 mb-3">
+                        <i class="ph-phone text-3xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-1">Phone</h3>
+                    <a href="tel:+918600440323" class="text-indigo-600 hover:underline text-sm">
+                        +91 86004 40323
+                    </a>
+                </div>
+                
+                <!-- LinkedIn -->
+                <div class="text-center p-4">
+                    <div class="text-indigo-600 mb-3">
+                        <i class="ph-linkedin-logo text-3xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-1">LinkedIn</h3>
+                    <a href="https://www.linkedin.com/in/devyani-nikam-a80914392" target="_blank" rel="noopener noreferrer"
+                       class="text-indigo-600 hover:underline text-sm">
+                        linkedin.com/in/devyani-nikam
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <div class="inline-flex items-center space-x-2 bg-white px-6 py-3 rounded-full shadow-sm">
+                    <i class="ph-clock text-indigo-500"></i>
+<!--                    <p class="text-gray-600 text-sm font-medium">-->
+<!--                        Available for new opportunities-->
+<!--                        <span class="ml-2 inline-flex h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>-->
+<!--                    </p>-->
+                </div>
+                
+<!--                <p class="mt-6 text-gray-500 text-sm max-w-2xl mx-auto">-->
+<!--                    I'm currently available for freelance projects, collaborations, and full-time opportunities. -->
+<!--                    Let's create something amazing together!-->
+<!--                </p>-->
             </div>
         </div>
     </section>
@@ -304,49 +548,114 @@ I am a passionate and dedicated trainee teacher, committed to creating an engagi
     <!-- Footer -->
     <footer class="bg-gray-900 text-gray-400 py-6 text-center">
         <div class="container">
-            <p>&copy; 2024 Devyani Nikam. All rights reserved.</p>
+            <p>&copy; 2025 Devyani Nikam. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && e.target !== mobileMenuButton) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        }
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            // Skip if it's a dropdown toggle
+            if (anchor.getAttribute('data-dropdown-toggle')) return;
+            
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                // Close mobile menu if open
+                if (mobileMenu) {
+                    mobileMenu.classList.add('hidden');
+                }
+                
+                // Smooth scroll to section
+                const targetId = this.getAttribute('href');
+                if (targetId !== '#') {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
             });
         });
 
-        // Function to handle the animation on scroll
-        const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+        // Update active nav link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        
+        function highlightNavigation() {
+            let scrollPosition = window.scrollY + 100;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = `#${section.getAttribute('id')}`;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    // Update desktop nav
+                    document.querySelectorAll('nav a').forEach(link => {
+                        link.classList.remove('text-indigo-600');
+                        if (link.getAttribute('href') === sectionId) {
+                            link.classList.add('text-indigo-600');
+                        }
+                    });
+                    
+                    // Update mobile nav
+                    if (mobileMenu) {
+                        mobileMenu.querySelectorAll('a').forEach(link => {
+                            link.classList.remove('text-indigo-600');
+                            if (link.getAttribute('href') === sectionId) {
+                                link.classList.add('text-indigo-600');
+                            }
+                        });
+                    }
+                }
+            });
+        }
+        
+        // Highlight first nav item by default if at top of page
+        window.addEventListener('load', () => {
+            if (window.scrollY < 100) {
+                const firstNavLink = document.querySelector('nav a[href^="#"]');
+                if (firstNavLink) {
+                    firstNavLink.classList.add('text-indigo-600');
+                }
+            }
+        });
+        
+        window.addEventListener('scroll', highlightNavigation);
 
-        const observer = new IntersectionObserver((entries, observer) => {
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
-                    // Stop observing once the element is visible
-                    observer.unobserve(entry.target);
                 }
             });
         }, {
-            threshold: 0.1 // Trigger when 10% of the element is visible
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         });
 
-        // Observe each element
-        elementsToAnimate.forEach(el => {
-            observer.observe(el);
+        document.querySelectorAll('.animate-on-scroll').forEach((element) => {
+            observer.observe(element);
         });
-
-        // Simple form submission handler (does not send email, just provides feedback)
-        const contactForm = document.getElementById('contact-form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(event) {
-                event.preventDefault();
-                alert('Form submission is not enabled in this template. Please use the contact details provided.');
-            });
-        }
     </script>
 </body>
 </html>
